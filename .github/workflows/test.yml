@@ -10,6 +10,14 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      - name: Run custom greet action
+        uses: ./.github/actions/greet
+        with:
+          name: "Mounika"
+
+      - name: Show greeting time
+        run: echo "Greeted at ${{ steps.greet.outputs.time }}"
+
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
